@@ -21,7 +21,7 @@ public class ResponseXml {
 
 
     @GetMapping("/cmcnu/.live")
-    public ResponseEntity<Entity> cmcnuLive(@RequestParam("submit_id") String submitId,
+    public ResponseEntity<Entitys> cmcnuLive(@RequestParam("submit_id") String submitId,
                                             @RequestParam("ex_interface") String exInterface,
                                             @RequestParam("business_id") String businessId,
                                             @RequestParam("imgSlidId") String imgSlidId,
@@ -53,7 +53,12 @@ public class ResponseXml {
         model.setReturnCode("S");
         model.setReturnMsg("이미지스캔완료");
 
-        ResponseEntity<Entity> entityModel = new ResponseEntity<>(model, new HttpHeaders(), HttpStatus.CREATED);
+
+        List<Entity> list = List.of(model);
+        Entitys xml = new Entitys();
+        xml.setList(list);
+
+        ResponseEntity<Entitys> entityModel = new ResponseEntity<>(xml, new HttpHeaders(), HttpStatus.CREATED);
         return entityModel;
     }
 
