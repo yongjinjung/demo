@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/v1/gkh", produces = MediaType.APPLICATION_JSON_VALUE)
 public class VunoResponseJson {
 
-    @PostMapping("/save")
+    @PostMapping("/slideUpload")
     public ResponseEntity<VunoApiResDTO> entityQueryStringById(@RequestBody VunoApiReqDTO vunoApiReqDTO)
     {
 
